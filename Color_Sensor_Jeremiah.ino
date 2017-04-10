@@ -1,4 +1,5 @@
 int x;
+int y;
 void setup()
 {
   pinMode(A0, INPUT);
@@ -10,12 +11,48 @@ void setup()
 
 void loop()
 {
-  x = analogRead(0);
+  
+  //red
   digitalWrite(9, LOW);
   digitalWrite(10, HIGH);
   digitalWrite(11, HIGH);
-  Serial.println(x);
-  delay(500);
-}
+  delay(100);
+  y = 0;
+  for(x = 0; x <= 10; x++)
+  {
+    y = y + analogRead(0);
+  }
+  y = y/10;
+  Serial.print(y);
+  Serial.print(':');
+  
+  //green
+  digitalWrite(9, HIGH);
+  digitalWrite(10, LOW);
+  digitalWrite(11, HIGH);
+  delay(100);
+  y = 0;
+  for(x = 0; x <= 10; x++)
+  {
+    y = y + analogRead(0);
+  }
+  y = y/10;
+  Serial.print(y);
+  Serial.print(':');
+  
+  //blue
+  digitalWrite(9, HIGH);
+  digitalWrite(10, HIGH);
+  digitalWrite(11, LOW);
+  delay(100);
+  y = 0;
+  for(x = 0; x <= 10; x++)
+  {
+    y = y + analogRead(0);
+  }
+  y = y/10;
+  Serial.println(y);
 
+  
+}
 
